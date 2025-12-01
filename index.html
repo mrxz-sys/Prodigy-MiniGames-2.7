@@ -122,20 +122,9 @@ body {
     text-shadow: 2px 2px 0 rgba(0,0,0,0.7);
 }
 
-/* Comic Book Store - Yellow */
-/* Comic Book Store - RED */
-.section-title:first-of-type {
-    color: #ff0000;
-    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
-    font-weight: 900;
-    letter-spacing: 2px;
-}
 
-/* Boosting Section - Blue theme */  
-.section-title:last-of-type {
-    color: #4dabf7; /* Blue */
-    text-shadow: 0 0 10px rgba(77, 171, 247, 0.5);
-}
+
+
 
 .game-cards-grid {
     display: grid;
@@ -205,11 +194,6 @@ body {
         url('assets/comic_book.png') center/cover;
 }
 
-/* Boosting Section - BLUE theme */  
-.section-title:nth-of-type(2) {
-    color: #0066ff; /* Electric blue */
-    text-shadow: 0 0 15px rgba(0, 102, 255, 0.7);
-}
 
 /* Boosting Games */
 .game-card[data-game="firewall"] .game-card-content,
@@ -282,16 +266,6 @@ body {
     margin-bottom: 0;
 }
   
-/* PDM Section - Red/Blue gradient */
-.section-title:nth-of-type(3) {
-    background: linear-gradient(90deg, #ff0000 0%, #ff0000 45%, #0000ff 55%, #0000ff 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-shadow: none;
-    font-weight: 900;
-}
-
 /* PDM Games */
 .game-card[data-game="connect-pipes"] .game-card-content,
 .game-card[data-game="find-pairs"] .game-card-content,
@@ -302,13 +276,6 @@ body {
     background: 
         linear-gradient(135deg, rgba(20, 30, 48, 0.85) 0%, rgba(15, 25, 40, 0.85) 100%),
         url('assets/pdm.png') center/cover;
-}
-
-/* Jewelry Store Section - Gold/Yellow */
-.section-title:nth-of-type(4) {
-    color: #ffd700; /* Gold/Yellow */
-    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
-    margin-top: 40px; /* Add some spacing from previous section */
 }
 
 /*JEWELRY Games*/
@@ -458,43 +425,37 @@ body {
             align-items: center;
         }
         
-#back-btn {
-background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
-    border: none;
-    color: #0a0e1a;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Orbitron', sans-serif;
-}
-    
-#back-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(140, 224, 35, 0.6);
- background: rgba(0,255,0,1);
-}
-    
-#play-again-inline-btn {
-background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
-    border: none;
-    color: #0a0e1a;
-    padding: 15px 40px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-family: 'Orbitron', sans-serif;
+#icon-buttons-container {
+    position: fixed;
+    top: 90px; /* Positioned below the 60px settings button + 20px top + 10px gap */
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-#play-again-inline-btn:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 30px rgba(140, 224, 35, 0.6);
+.icon-btn {
+    background: linear-gradient(135deg, rgba(20, 30, 48, 0.9) 0%, rgba(15, 25, 40, 0.9) 100%);
+    border: 2px solid rgba(140, 224, 35, 0.3);
+    border-radius: 50%;
+    width: 60px; /* CHANGED from 50px to 60px */
+    height: 60px; /* CHANGED from 50px to 60px */
+    font-size: 1.5rem; /* CHANGED from 1.3rem to match settings */
+    color: #8ce023;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.icon-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(140, 224, 35, 0.4);
+    border-color: #8ce023;
+    background: linear-gradient(135deg, rgba(30, 40, 58, 0.9) 0%, rgba(25, 35, 50, 0.9) 100%);
 }
         .game-over {
             position: absolute;
@@ -591,26 +552,6 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
             color: #ffd700;
         }
         
-        .control-setting {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding: 8px 0;
-        }
-        
-        .control-setting label {
-            font-size: 1.1em;
-        }
-        
-        .control-setting select {
-            background: #333;
-            color: white;
-            border: 1px solid #555;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 1em;
-        }
         
         #close-settings {
             background: #f44336;
@@ -627,15 +568,157 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
         .dragging {
             opacity: 0.7;
         }
-#matrix-bg {
-    display: none;
-    position: fixed;
+
+/* 1. COMIC BOOK STORE HEIST Gold/Yellow  */
+.game-cards-grid .section-title:first-of-type {
+    color: #ffd700; /* Gold/Yellow */
+    text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    margin-top: 40px;
+}
+
+/* 2. JEWELRY STORE - Red Diamonds */
+.section-title:nth-of-type(2) {
+    color: #ff0000;
+    text-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+/* 3. PAY DAY HEIST - Green */
+.section-title:nth-of-type(3) {
+    color: #8ce023; /* Green */
+    text-shadow: 0 0 15px rgba(140, 224, 35, 0.7);
+    font-weight: 900;
+    margin-top: 40px;
+}
+
+/* 4. PDM - Red/Blue gradient */
+.section-title:nth-of-type(4) {
+    background: linear-gradient(90deg, #ff0000 0%, #ff0000 45%, #0000ff 55%, #0000ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    font-weight: 900;
+    margin-top: 40px;
+}
+
+/* 5. BOOSTING - Blue */
+.section-title:nth-of-type(5) {
+    color: #4dabf7; /* Blue */
+    text-shadow: 0 0 10px rgba(77, 171, 247, 0.5);
+    margin-top: 40px;
+}
+
+.payday-title {
+    color: #8ce023 !important;
+}
+
+/* Style for PAY DAY HEIST game card */
+.game-card[data-game="color-drilling"] .game-card-content {
+    background: 
+        linear-gradient(135deg, rgba(20, 30, 48, 0.85) 0%, rgba(15, 25, 40, 0.85) 100%),
+        url('assets/pay_day.png') center/cover;
+}
+
+.toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Controls spacing between ALL elements */
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    max-width: 100%;
+}
+
+.toggle-label {
+    font-size: 1.1em;
+    color: white;
+    min-width: 180px;
+    flex-shrink: 0;
+}
+
+.toggle-value {
+    color: #8ce023;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 0;
+    flex-shrink: 0;
+    min-width: 120px; 
+}
+
+.toggle-value-short {
+    color: #8ce023;
+    font-weight: bold;
+    text-align: left;
+    margin-left: 0;
+    flex-shrink: 0;
+    min-width: 40px; 
+}
+
+.toggle-container {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    flex-shrink: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
+    right: 0;
+    bottom: 0;
+    background-color: #333; /* Solid dark gray */
+    border: 1px solid #555;
+    border-radius: 15px;
+    transition: .4s;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    border-radius: 50%;
+    transition: .4s;
+}
+
+.toggle-checkbox {
+    display: none;
+}
+
+.toggle-checkbox:checked + .toggle-slider {
+    background-color: #8ce023; /* Green when ON */
+}
+
+.toggle-checkbox:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+.toggle-checkbox:checked + .toggle-slider {
+    background-color: #8ce023; /* Green when ON */
+}
+
+.toggle-checkbox:checked + .toggle-slider:before {
+    transform: translateX(30px);
+}
+
+.toggle-text {
+    color: #aaa;
+    font-size: 0.9em;
+    margin-left: 10px;
+    min-width: 150px; /* ADD THIS - prevents text from being too small */
+    flex-shrink: 0; /* ADD THIS - prevents text from shrinking */
+}
+
+.toggle-value {
+    color: #8ce023;
+    font-weight: bold;
+    min-width: 60px; /* Keep this */
+    text-align: right; /* ADD THIS for better alignment */
 }
     </style>
 </head>
@@ -699,7 +782,118 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
             <p>Guess the word • 10 minutes • Daily challenge</p>
         </div>
         </div>
-        <h3 class="section-title">BOOSTING</h3>
+
+
+<h3 class="section-title">JEWELRY STORE</h3>
+
+<div class="game-card" data-game="color-memory">
+    <div class="game-card-image">
+        <img src="assets/color_memory.png" alt="Color Memory">
+    </div>
+    <div class="game-card-content">
+        <h3>COLOR MEMORY</h3>
+        <p>Remember colors • Answer quickly • Perfect recall</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="math-compare">
+    <div class="game-card-image">
+        <img src="assets/math_compare.png" alt="Math Comparison">
+    </div>
+    <div class="game-card-content">
+        <h3>MATH COMPARISON</h3>
+        <p>Compare equations • Beat the clock • Perfect logic</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="lock-picking">
+    <div class="game-card-image">
+        <img src="assets/lock_picking.png" alt="Lock Picking">
+    </div>
+    <div class="game-card-content">
+        <h3>LOCK PICKING</h3>
+        <p>Find the sequence • Press P or Q • Beat the timer</p>
+    </div>
+</div>
+
+
+<h3 class="section-title payday-heist">PAY DAY HEIST</h3>
+
+<div class="game-card" data-game="color-drilling">
+    <div class="game-card-image">
+        <img src="assets/color_drilling.png" alt="Color Drilling">
+    </div>
+    <div class="game-card-content">
+        <h3>COLOR DRILLING</h3>
+        <p>Match drill color • Drill through 20 blocks • Use arrows</p>
+    </div>
+</div>
+
+
+<h3 class="section-title">PDM</h3>
+<div class="game-card" data-game="connect-pipes">
+    <div class="game-card-image">
+        <img src="assets/connect_pipes.png" alt="Connect Pipes">
+    </div>
+    <div class="game-card-content">
+        <h3>CONNECT PIPES</h3>
+        <p>Connect pipes • 50 seconds • Start to end</p>
+    </div>
+</div>
+
+<!-- After DESTROY FIREWALL game card -->
+<div class="game-card" data-game="find-pairs">
+    <div class="game-card-image">
+        <img src="assets/find_pairs.png" alt="Find Pairs">
+    </div>
+    <div class="game-card-content">
+        <h3>FIND PAIRS</h3>
+        <p>Match 5 pairs • 7x7 grid • 50 seconds</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="block-external-signal">
+    <div class="game-card-image">
+        <img src="assets/block_external_signal.png" alt="Block External Signal">
+    </div>
+    <div class="game-card-content">
+        <h3>BLOCK EXTERNAL SIGNAL</h3>
+        <p>Avoid pipes • Survive 50 seconds • Spacebar to jump</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="electricity-panel">
+    <div class="game-card-image">
+        <img src="assets/electricity_panel.png" alt="Electricity Panel">
+    </div>
+    <div class="game-card-content">
+        <h3>ELECTRICITY PANEL</h3>
+        <p>Match circuits • Memorize patterns • 4 rounds</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="memory-sequence">
+    <div class="game-card-image">
+        <img src="assets/memory_sequence.png" alt="Memory Sequence">
+    </div>
+    <div class="game-card-content">
+        <h3>MEMORY SEQUENCE</h3>
+        <p>Remember pattern • Compare cells • Perfect recall</p>
+    </div>
+</div>
+
+<div class="game-card" data-game="unlock-garage">
+    <div class="game-card-image">
+        <img src="assets/unlock_garage.png" alt="Unlock Garage">
+    </div>
+    <div class="game-card-content">
+        <h3>🔓 UNLOCK GARAGE</h3>
+        <p>Memorize codes • 4 rounds • Fast typing</p>
+    </div>
+</div>
+
+
+<h3 class="section-title">BOOSTING</h3>
         <div class="game-card" data-game="firewall">
     <div class="game-card-image">
             <img src="assets/destroy_firewall.jpg" alt="Destroy Firewall">
@@ -764,16 +958,6 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
 </div>
 </div>  
 
-<div class="game-card" data-game="gather-blocks">
-    <div class="game-card-image">
-        <img src="assets/drill.png" alt="Color Drilling">
-    </div>
-    <div class="game-card-content">
-        <h3>COLOR DRILLING</h3>
-        <p>Match drill color • Drill through 20 blocks • Use arrows</p>
-    </div>
-</div>
-
 <div class="game-card" data-game="osu">
     <div class="game-card-image">
         <img src="assets/osu.png" alt="Rhythm Hack">
@@ -791,101 +975,6 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
     <div class="game-card-content">
         <h3>LOCKPICK HANDCUFFS</h3>
         <p>Press E to match boxes • Perfect timing • 3 difficulties</p>
-    </div>
-</div>
-
-<h3 class="section-title">PDM</h3>
-
-<div class="game-card" data-game="connect-pipes">
-    <div class="game-card-image">
-        <img src="assets/connect_pipes.png" alt="Connect Pipes">
-    </div>
-    <div class="game-card-content">
-        <h3>CONNECT PIPES</h3>
-        <p>Connect pipes • 50 seconds • Start to end</p>
-    </div>
-</div>
-
-<!-- After DESTROY FIREWALL game card -->
-<div class="game-card" data-game="find-pairs">
-    <div class="game-card-image">
-        <img src="assets/find_pairs.png" alt="Find Pairs">
-    </div>
-    <div class="game-card-content">
-        <h3>FIND PAIRS</h3>
-        <p>Match 5 pairs • 7x7 grid • 50 seconds</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="block-external-signal">
-    <div class="game-card-image">
-        <img src="assets/block_external_signal.png" alt="Block External Signal">
-    </div>
-    <div class="game-card-content">
-        <h3>BLOCK EXTERNAL SIGNAL</h3>
-        <p>Avoid pipes • Survive 50 seconds • Spacebar to jump</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="electricity-panel">
-    <div class="game-card-image">
-        <img src="assets/electricity_panel.png" alt="Electricity Panel">
-    </div>
-    <div class="game-card-content">
-        <h3>ELECTRICITY PANEL</h3>
-        <p>Match circuits • Memorize patterns • 4 rounds</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="memory-sequence">
-    <div class="game-card-image">
-        <img src="assets/memory_sequence.png" alt="Memory Sequence">
-    </div>
-    <div class="game-card-content">
-        <h3>MEMORY SEQUENCE</h3>
-        <p>Remember pattern • Compare cells • Perfect recall</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="unlock-garage">
-    <div class="game-card-image">
-        <img src="assets/unlock_garage.png" alt="Unlock Garage">
-    </div>
-    <div class="game-card-content">
-        <h3>🔓 UNLOCK GARAGE</h3>
-        <p>Memorize codes • 4 rounds • Fast typing</p>
-    </div>
-</div>
-
-<h3 class="section-title">JEWELRY STORE</h3>
-
-<div class="game-card" data-game="color-memory">
-    <div class="game-card-image">
-        <img src="assets/color_memory.png" alt="Color Memory">
-    </div>
-    <div class="game-card-content">
-        <h3>COLOR MEMORY</h3>
-        <p>Remember colors • Answer quickly • Perfect recall</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="math-compare">
-    <div class="game-card-image">
-        <img src="assets/math_compare.png" alt="Math Comparison">
-    </div>
-    <div class="game-card-content">
-        <h3>MATH COMPARISON</h3>
-        <p>Compare equations • Beat the clock • Perfect logic</p>
-    </div>
-</div>
-
-<div class="game-card" data-game="lock-picking">
-    <div class="game-card-image">
-        <img src="assets/lock_picking.png" alt="Lock Picking">
-    </div>
-    <div class="game-card-content">
-        <h3>LOCK PICKING</h3>
-        <p>Find the sequence • Press P or Q • Beat the timer</p>
     </div>
 </div>
 
@@ -960,65 +1049,90 @@ background: linear-gradient(135deg, #8ce023 0%, #5da817 100%);
         <div id="game-ui"></div>
         <div id="lives-display"></div>
     </div>
-    <div id="game-buttons-container">
-        <button id="play-again-inline-btn">🔄 PLAY AGAIN</button>
-        <button id="back-btn">← BACK TO MENU</button>
-    </div>
+<div id="icon-buttons-container">
+    <button class="icon-btn" id="play-again-inline-btn" title="Play Again">🔄</button>
+    <button class="icon-btn" id="back-btn" title="Back to Home">🏠</button>
+</div>
 </div>
 
         <!-- Settings Menu -->
 <div id="settings-menu">
-            <h2 style="text-align: center; margin-bottom: 20px; color: #ffd700;">SETTINGS</h2>
-            
-            <div class="settings-section">
-                <h3>COMIC BOOK STORE HEIST</h3>
-                
-                <div class="control-setting">
-                    <label>Control Scheme:</label>
-                    <select id="heist-controls">
-                        <option value="arrows">Arrow Keys</option>
-                        <option value="wasd">WASD</option>
-                    </select>
-                </div>
-                
-                <div style="font-size: 0.8em; color: #aaa; margin-top: 10px; line-height: 1.4;">
-                    Breakout: Left/Right to move, SPACE to launch<br>
-                    Space Shooter: Up/Down to move, SPACE to shoot
-                </div>
-            </div>
-            
-            <div class="settings-section">
-                <h3>BOOSTING GAMES</h3>
-                
-                <div class="control-setting">
-                    <label>Control Scheme:</label>
-                    <select id="boosting-controls">
-                        <option value="arrows">Arrow Keys</option>
-                        <option value="wasd">WASD</option>
-                    </select>
-                </div>
-                
-                <div style="font-size: 0.8em; color: #aaa; margin-top: 10px; line-height: 1.4;">
-                    Destroy Firewall: Left/Right to move, SPACE to shoot<br>
-                    Gather Power: Arrow keys/WASD to move snake<br>
-                    Bypass Firewall: Press A, S, K, L when blocks align
-                </div>
-            </div>
-            
-            <div class="settings-section">
-                <h3>GAMEPLAY</h3>
-                
-                <div class="control-setting">
-                    <label>Skip Intro Screens:</label>
-                    <select id="skip-intros">
-                        <option value="false">No</option>
-                        <option value="true">Yes</option>
-                    </select>
-                </div>
-            </div>
-            
-            <button id="close-settings">CLOSE SETTINGS</button>
+    <h2 style="text-align: center; margin-bottom: 20px; color: #ffd700;">SETTINGS</h2>
+    
+    <div class="settings-section">
+        <h3>COMIC BOOK STORE HEIST</h3>
+        
+        <div class="toggle-switch">
+            <span class="toggle-label">Control Scheme:</span>
+            <label class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="heist-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-value" id="heist-value">Arrow Keys</span>
         </div>
+        
+        <div style="font-size: 0.8em; color: #aaa; margin-top: 10px; line-height: 1.4;">
+            Breakout: Left/Right to move, SPACE to launch<br>
+            Space Shooter: Up/Down to move, SPACE to shoot
+        </div>
+    </div>
+    
+    <div class="settings-section">
+        <h3>BOOSTING GAMES</h3>
+        
+        <div class="toggle-switch">
+            <span class="toggle-label">Control Scheme:</span>
+            <label class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="boosting-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-value" id="boosting-value">Arrow Keys</span>
+        </div>
+        
+        <div style="font-size: 0.8em; color: #aaa; margin-top: 10px; line-height: 1.4;">
+            Destroy Firewall: Left/Right to move, SPACE to shoot<br>
+            Gather Power: Arrow keys/WASD to move snake<br>
+            Bypass Firewall: Press A, S, K, L when blocks align<br>
+            Block Signal: Left/Right to rotate circle<br>
+            Avoid Obstacles: Left/Right to rotate cannon, SPACE to shoot<br>
+            Avoid Walls: Up/Down/Left/Right to move arrow<br>
+            Avoid Safety Features: Left/Right to switch lanes<br>
+        </div>
+    </div>
+    
+    <div class="settings-section">
+        <h3 class="payday-title">PAY DAY HEIST</h3>
+        
+        <div class="toggle-switch">
+            <span class="toggle-label">Control Scheme:</span>
+            <label class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="payday-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-value" id="payday-value">Arrow Keys</span>
+        </div>
+        
+          <div style="font-size: 0.8em; color: #aaa; margin-top: 10px; line-height: 1.4;">
+            Color Drilling: Left/Right to move drill, match colors<br>
+            Press correct key when colored block aligns with drill
+        </div>
+    </div>
+
+    <div class="settings-section">
+        <h3>GAMEPLAY</h3>
+        
+        <div class="toggle-switch">
+            <span class="toggle-label">Skip Intro Screens:</span>
+            <label class="toggle-container">
+                <input type="checkbox" class="toggle-checkbox" id="skip-intro-toggle">
+                <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-value-short" id="skip-intro-value">NO</span>
+        </div>
+    </div>
+    
+    <button id="close-settings">CLOSE SETTINGS</button>
+</div>
 
         <div class="game-over" id="game-over-screen">
             <div id="game-over-text"></div>
@@ -10495,56 +10609,83 @@ function gameLoop() {
 function loadSettings() {
     // Determine which scheme is being used for heist games
     const heistScheme = (settings.breakout.left === 'ArrowLeft') ? 'arrows' : 'wasd';
-    document.getElementById('heist-controls').value = heistScheme;
+    document.getElementById('heist-toggle').checked = (heistScheme === 'wasd');
+    document.getElementById('heist-value').textContent = (heistScheme === 'arrows') ? 'Arrow Keys' : 'WASD';
     
     // Determine which scheme is being used for boosting games
     const boostingScheme = (settings.boosting.left === 'ArrowLeft') ? 'arrows' : 'wasd';
-    document.getElementById('boosting-controls').value = boostingScheme;
+    document.getElementById('boosting-toggle').checked = (boostingScheme === 'wasd');
+    document.getElementById('boosting-value').textContent = (boostingScheme === 'arrows') ? 'Arrow Keys' : 'WASD';
     
-    document.getElementById('skip-intros').value = settings.skipIntros ? 'true' : 'false';
+// Add this with your other toggle event listeners
+document.getElementById('payday-toggle').addEventListener('change', function() {
+    document.getElementById('payday-value').textContent = this.checked ? 'WASD' : 'Arrow Keys';
+});
+
+    // Skip intro toggle
+    document.getElementById('skip-intro-toggle').checked = settings.skipIntros;
+    document.getElementById('skip-intro-value').textContent = settings.skipIntros ? 'YES' : 'NO';
 }
         
 function saveSettings() {
     // Heist games control scheme
-    const heistScheme = document.getElementById('heist-controls').value;
-    if (heistScheme === 'arrows') {
-        settings.breakout.left = 'ArrowLeft';
-        settings.breakout.right = 'ArrowRight';
-        settings.asteroids.up = 'ArrowUp';
-        settings.asteroids.down = 'ArrowDown';
-        settings.asteroids.shoot = 'Space';
-    } else {
+    const heistToggle = document.getElementById('heist-toggle').checked;
+    if (heistToggle) { // WASD
         settings.breakout.left = 'KeyA';
         settings.breakout.right = 'KeyD';
         settings.asteroids.up = 'KeyW';
         settings.asteroids.down = 'KeyS';
         settings.asteroids.shoot = 'Space';
+        document.getElementById('heist-value').textContent = 'WASD';
+    } else { // Arrow Keys
+        settings.breakout.left = 'ArrowLeft';
+        settings.breakout.right = 'ArrowRight';
+        settings.asteroids.up = 'ArrowUp';
+        settings.asteroids.down = 'ArrowDown';
+        settings.asteroids.shoot = 'Space';
+        document.getElementById('heist-value').textContent = 'Arrow Keys';
     }
     
     // Boosting games control scheme
-    const boostingScheme = document.getElementById('boosting-controls').value;
-    if (boostingScheme === 'arrows') {
-        settings.boosting.left = 'ArrowLeft';
-        settings.boosting.right = 'ArrowRight';
-        settings.boosting.up = 'ArrowUp';
-        settings.boosting.down = 'ArrowDown';
-        settings.boosting.shoot = 'Space';
-    } else {
+    const boostingToggle = document.getElementById('boosting-toggle').checked;
+    if (boostingToggle) { // WASD
         settings.boosting.left = 'KeyA';
         settings.boosting.right = 'KeyD';
         settings.boosting.up = 'KeyW';
         settings.boosting.down = 'KeyS';
         settings.boosting.shoot = 'Space';
+        document.getElementById('boosting-value').textContent = 'WASD';
+    } else { // Arrow Keys
+        settings.boosting.left = 'ArrowLeft';
+        settings.boosting.right = 'ArrowRight';
+        settings.boosting.up = 'ArrowUp';
+        settings.boosting.down = 'ArrowDown';
+        settings.boosting.shoot = 'Space';
+        document.getElementById('boosting-value').textContent = 'Arrow Keys';
     }
     
-    settings.skipIntros = document.getElementById('skip-intros').value === 'true';
+    // Skip intro toggle
+    settings.skipIntros = document.getElementById('skip-intro-toggle').checked;
+    document.getElementById('skip-intro-value').textContent = settings.skipIntros ? 'YES' : 'NO';
 }
 
         // ============= EVENT LISTENERS =============
 document.addEventListener('DOMContentLoaded', function() {
     // Load settings
     loadSettings();
+
+      document.getElementById('heist-toggle').addEventListener('change', function() {
+        document.getElementById('heist-value').textContent = this.checked ? 'WASD' : 'Arrow Keys';
+    });
     
+    document.getElementById('boosting-toggle').addEventListener('change', function() {
+        document.getElementById('boosting-value').textContent = this.checked ? 'WASD' : 'Arrow Keys';
+    });
+    
+    document.getElementById('skip-intro-toggle').addEventListener('change', function() {
+        document.getElementById('skip-intro-value').textContent = this.checked ? 'YES' : 'NO';
+    });
+
     // Game card click handlers
     document.querySelectorAll('.game-card').forEach(card => {
         card.addEventListener('click', function() {
